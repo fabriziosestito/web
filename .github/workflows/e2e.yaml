@@ -116,10 +116,6 @@ jobs:
         with:
           working-directory: test/e2e
           spec: cypress/e2e/hana_scale_up_checks.cy.js
-          headless: true
-      - name: Remove VPC bindings
-        working-directory: terraform/deployments/aws
-        run: terraform workspace select trentoe2e && terraform state rm aws_vpc.vpc
       - name: Destroy
         uses: dflook/terraform-destroy-workspace@v1
         continue-on-error: true
